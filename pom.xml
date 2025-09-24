@@ -19,6 +19,7 @@
 
     <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
     <maven.war.plugin.version>3.3.2</maven.war.plugin.version>
+    <exec.plugin.version>3.1.0</exec.plugin.version>
   </properties>
 
   <dependencies>
@@ -59,6 +60,15 @@
         <configuration>
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>${exec.plugin.version}</version>
+        <configuration>
+          <mainClass>com.giga.springlab.App</mainClass>
         </configuration>
       </plugin>
     </plugins>
