@@ -1,9 +1,9 @@
 services:
-  web:
-    image: tomcat:10.1-jdk17
-    container_name: tomcat-server
+  tomcat:
+    build: .
+    container_name: giga-tomcat
     ports:
       - "8080:8080"
-    restart: always
     volumes:
-      - ./target/gigaspring-lab.war:/usr/local/tomcat/webapps/ROOT.war
+      - ./target/gigaspring-lab.war:/usr/local/tomcat/webapps/gigaspring-lab.war
+    restart: no
