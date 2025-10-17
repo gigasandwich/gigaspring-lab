@@ -1,13 +1,9 @@
 package com.giga.springlab;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+import com.giga.springlab.annotation.LabClass;
+
+public class App {
+    public static void main(String[] args) throws SecurityException {
+        UrlMappingLab.displayAllUrlMappingPathValues(LabClass.class);
     }
 }
