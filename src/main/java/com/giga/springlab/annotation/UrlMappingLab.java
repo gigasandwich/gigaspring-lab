@@ -5,12 +5,19 @@ import java.lang.reflect.Method;
 import com.giga.spring.annotation.UrlMapping;
 
 public class UrlMappingLab {
-
+    private static UrlMappingLab instance;
+    
+    public static UrlMappingLab getInstance() {
+        if (instance == null)
+            instance = new UrlMappingLab();
+        return instance;
+    }
+    
     /* 
      * Displays all the "UrlMapping.path()" values
      * from the methods of clazz
     */
-    public static void displayAllUrlMappingPathValues(Class<?> clazz) throws SecurityException {
+    public void displayAllUrlMappingPathValues(Class<?> clazz) throws SecurityException {
         try {
             Method[] methods = clazz.getDeclaredMethods();
             for (Method method : methods) {
