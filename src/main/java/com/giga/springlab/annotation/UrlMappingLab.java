@@ -1,39 +1,37 @@
 package com.giga.springlab.annotation;
 
 import java.lang.reflect.Method;
+import java.util.Map;
 
-import com.giga.spring.annotation.UrlMapping;
+import com.giga.spring.util.ReflectionUtils;
 
 public class UrlMappingLab {
     private static UrlMappingLab instance;
-    
+
     public static UrlMappingLab getInstance() {
         if (instance == null)
             instance = new UrlMappingLab();
         return instance;
     }
-    
-    /* 
-     * Displays all the "UrlMapping.path()" values
-     * from the methods of clazz
-    */
+
     public void displayAllUrlMappingPathValues(Class<?> clazz) throws SecurityException {
         try {
-            Method[] methods = clazz.getDeclaredMethods();
-            for (Method method : methods) {
-                if (method.isAnnotationPresent(UrlMapping.class)) {
-                    UrlMapping annotation = method.getAnnotation(UrlMapping.class);
-                    
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("Method: ").append(method.getName()).append("()").append("; ")
-                        .append("Path value from the annotation: ").append(annotation.path());
+            Map<String, Method> result = ReflectionUtils.getInstance().getAllUrlMappingPathValues(clazz);
 
-                    System.out.println(sb.toString());
-                }
+            for (String key : result.keySet()) {
+                StringBuilder sb = new StringBuilder();
+
+                String url = key;
+                String methodName = result.get(key).getName();
+                String fullMethodName = clazz.getName() + "." + methodName;
+
+                sb.append("URL: ").append(url)
+                    .append(" - method: ").append(fullMethodName).append(";");
+
+                System.out.println(sb.toString());
             }
         } catch (SecurityException se) {
             throw se;
         }
     }
-
 }
