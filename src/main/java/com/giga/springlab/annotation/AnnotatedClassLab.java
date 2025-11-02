@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.util.*;
 
-import com.giga.spring.util.ReflectionUtils;
+import com.giga.spring.util.ScanUtils;
 
 public class AnnotatedClassLab {
     private static AnnotatedClassLab instance;
@@ -16,13 +16,8 @@ public class AnnotatedClassLab {
     }
 
     public void displayAnnotatedClasses(Class<? extends Annotation> annotation, String basePackage) {
-        try {
-            Set<Class<?>> foundClasses = ReflectionUtils.getInstance().getClassesAnnotatedWith(annotation, basePackage);
-            System.out.println("Annotation " + annotation.toString() + " is used by:");
-            foundClasses.forEach(c -> System.out.println("\t" + c.getName()));
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-        
+        Set<Class<?>> foundClasses = ScanUtils.getInstance().getClassesAnnotatedWith(annotation, basePackage);
+        System.out.println("Annotation '" + annotation.toString() + "' is used by:");
+        foundClasses.forEach(c -> System.out.println("\t" + c.getName()));
     }
 }

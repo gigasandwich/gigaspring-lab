@@ -3,7 +3,7 @@ package com.giga.springlab.annotation;
 import java.lang.reflect.Method;
 import java.util.Map;
 
-import com.giga.spring.util.ReflectionUtils;
+import com.giga.spring.util.ScanUtils;
 
 public class UrlMappingLab {
     private static UrlMappingLab instance;
@@ -16,7 +16,7 @@ public class UrlMappingLab {
 
     public void displayAllUrlMappingPathValues(Class<?> clazz) throws SecurityException {
         try {
-            Map<String, Method> result = ReflectionUtils.getInstance().getAllUrlMappingPathValues(clazz);
+            Map<String, Method> result = ScanUtils.getInstance().getAllUrlMappingPathValues(clazz);
 
             for (String key : result.keySet()) {
                 StringBuilder sb = new StringBuilder();
