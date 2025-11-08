@@ -5,14 +5,14 @@ import com.giga.spring.annotation.UrlMapping;
 
 @ControllerAnnotation
 public class AnnotatedController2 {
-    @UrlMapping(path="/c2/path1")
+    @UrlMapping(path="/c2/string1")
     private String methodWithAnnotation1() {
-        return "String from /c2/path1";
+        return "String from /c2/string1";
     }
 
-    @UrlMapping(path="/c2/path2")
+    @UrlMapping(path="/c2/string2")
     private String methodWithAnnotation2() {
-        return "String from /c2/path1";
+        return "String from /c2/string2";
     }
 
     private void methodWithoutAnnotation() {}
