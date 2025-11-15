@@ -20,6 +20,12 @@ public class AnnotatedController {
     @UrlMapping(path="/c0/mav1")
     private ModelAndView methodWithAnnotation3() {
         ModelAndView mav = new ModelAndView("/pages/mav/page0.jsp");
+
+        mav.setAttribute("book", "Vinland Saga");
+        mav.setAttribute("quote", "You have no enemies");
+        mav.setAttribute("chapter", 160);
+        mav.setAttribute("page", 8);
+
         return mav;
     }
 

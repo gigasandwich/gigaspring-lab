@@ -7,5 +7,11 @@
 </head>
 <body>
     <h1><code>page1.jsp</code> from AnnotatedController1</h1>
+
+    <div>
+        <p>
+            <b>${moves.toString()}: </b> <i>${message}</i>
+        </p>
+    </div>
 </body>
 </html>
