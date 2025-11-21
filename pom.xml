@@ -10,6 +10,9 @@
   <url>http://maven.apache.org</url>
 
   <properties>
+      <maven.compiler.source>17</maven.compiler.source>
+      <maven.compiler.target>17</maven.compiler.target>
+      <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
 
     <junit.version>4.13.2</junit.version>
     <servlet.version>6.0.0</servlet.version>
@@ -48,6 +51,19 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>${maven.war.plugin.version}</version>
       </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>${maven.compiler.plugin.version}</version>
+            <configuration>
+                <source>${maven.compiler.source}</source>
+                <target>${maven.compiler.target}</target>
+                <compilerArgs>
+                    <arg>-parameters</arg>
+                </compilerArgs>
+            </configuration>
+        </plugin>
     </plugins>
   </build>
 </project>
