@@ -13,9 +13,8 @@ public class StudentController {
     }
 
     @UrlMapping(path = "/students/{studentId}")
-    public ModelAndView getStudent() {
-        ModelAndView mav = new ModelAndView("/pages/students/form-result.jsp");
-        return mav;
+    public String echoStudentData(int id, String name, String firstName) {
+        return id + " " + name + " " + firstName;
     }
 
     @UrlMapping(path = "/students/{studentId}/notes/{noteId}")
