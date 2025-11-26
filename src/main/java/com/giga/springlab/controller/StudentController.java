@@ -2,7 +2,7 @@ package com.giga.springlab.controller;
 
 import com.giga.spring.annotation.ControllerAnnotation;
 import com.giga.spring.annotation.controller.*;
-import com.giga.spring.annotation.UrlMapping;
+import com.giga.spring.annotation.http.UrlMapping;
 import com.giga.spring.util.http.ModelAndView;
 
 @ControllerAnnotation
