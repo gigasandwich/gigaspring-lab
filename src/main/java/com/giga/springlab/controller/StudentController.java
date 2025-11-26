@@ -1,6 +1,7 @@
 package com.giga.springlab.controller;
 
 import com.giga.spring.annotation.ControllerAnnotation;
+import com.giga.spring.annotation.controller.*;
 import com.giga.spring.annotation.UrlMapping;
 import com.giga.spring.util.http.ModelAndView;
 
@@ -13,13 +14,14 @@ public class StudentController {
     }
 
     @UrlMapping(path = "/students/{studentId}")
-    public String echoStudentData(int id, String name, String firstName) {
-        return id + " " + name + " " + firstName;
+    public String studentDataWithPathVariable(@RequestParameter("actualId") int id, String name, String firstName, @PathVariable("studentId") int studentId) {
+        // /students/67?actualId=12&name=Miary&firstName=Zo
+        return id + " " + name + " " + firstName + " " + studentId;
     }
 
     @UrlMapping(path = "/students/{studentId}/notes/{noteId}")
-    public ModelAndView getFirstNoteOfStudent() {
-        ModelAndView mav = new ModelAndView("/pages/students/form-result.jsp");
-        return mav;
+    public void getFirstNoteOfStudent(@PathVariable("studentId") String studentId, @PathVariable("noteId") String noteId) {
+        // /students/ETU001/notes/MTH101
+        System.out.println("studentId: " + studentId + ", noteId: " + noteId);
     }
 }
