@@ -1,10 +1,12 @@
 package com.giga.springlab.controller;
 
-import com.giga.spring.annotation.ControllerAnnotation;
+import com.giga.spring.annotation.controller.Controller;
 import com.giga.spring.annotation.http.*;
 import com.giga.spring.annotation.controller.*;
 
-@ControllerAnnotation
+import java.util.Map;
+
+@Controller
 public class CourseController {
     @DoGet(path = "/courses")
     String showAllCourses() {
@@ -17,7 +19,9 @@ public class CourseController {
     }
 
     @DoGet(path = "/courses/{courseId}")
-    String showAllCourses(@PathVariable("courseId") String courseId) {
-        return courseId;
+    String showAllCourses(@PathVariable("courseId") String courseId, Map<String, Object> map) {
+        // /courses/1?name=miary&firstName=zo
+        String fullName = (String) map.get("name") + " " +  (String)  map.get("firstName");
+        return courseId + "; " + fullName;
     }
 }
