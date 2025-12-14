@@ -1,6 +1,5 @@
 package com.giga.springlab.controller;
 
-import com.giga.spring.annotation.controller.Controller;
 import com.giga.spring.annotation.controller.*;
 import com.giga.spring.annotation.http.DoGet;
 import com.giga.spring.annotation.http.RequestMapping;

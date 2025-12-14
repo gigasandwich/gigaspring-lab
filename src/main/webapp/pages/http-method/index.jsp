@@ -8,13 +8,13 @@
 </head>
 <body>
     <div>
-        <form action="/gigaspring-lab/courses" method="GET">
+        <form action="${pageContext.request.contextPath}/courses" method="GET">
             <button>GET</button>
         </form>
     </div>
     
     <div>
-        <form action="/gigaspring-lab/courses" method="POST">
+        <form action="${pageContext.request.contextPath}/courses" method="POST">
             <button>POST</button>
         </form>
     </div>
