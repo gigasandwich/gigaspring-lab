@@ -8,6 +8,11 @@
 
   <display-name>Archetype Created Web Application</display-name>
 
+    <context-param>
+        <param-name>basePackage</param-name>
+        <param-value>com</param-value>
+    </context-param>
+
   <servlet>
     <servlet-name>front</servlet-name>
     <servlet-class>com.giga.spring.servlet.FrontServlet</servlet-class>
