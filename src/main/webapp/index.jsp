@@ -12,6 +12,7 @@
         <li><a href="pages/page.jsp" class="bg-red">jsp resource</a></li>
         <li><a href="pages/http-method/index.jsp">Http method</a></li>
         <li><a href="pages/object-handling/index.jsp">Object handling</a></li>
+        <li><a href="pages/file-upload/index.jsp">File upload</a></li>
     </ul>
 </body>
 </html>
