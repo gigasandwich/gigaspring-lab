@@ -9,6 +9,7 @@ import java.util.List;
 @Data
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 public class Employee {
     private String name;
     private Department dept;
