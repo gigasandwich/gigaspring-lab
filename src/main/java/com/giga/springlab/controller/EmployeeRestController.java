@@ -9,10 +9,11 @@ import com.giga.springlab.model.Employee;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.giga.spring.annotation.method.IgnoreRestController;
 
 @RestController
 public class EmployeeRestController {
-    @DoGet(path = "/rest/employees")
+@DoGet(path = "/rest/employees")
     public List<Employee> getEmployees() {
         List<Employee> employees = new ArrayList<>();
         employees.add(new Employee("E1", new Department("D1"), null, null, null));
@@ -28,6 +29,7 @@ public class EmployeeRestController {
     }
 
     @DoGet(path = "/rest/employees/{id}/name")
+    @IgnoreRestController
     public String getEmployeeName(@PathVariable("id") int id) {
         List<Employee> employees = getEmployees();
         return employees.get(id).getName();

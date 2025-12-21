@@ -5,6 +5,7 @@ import com.giga.spring.annotation.http.DoPost;
 import com.giga.spring.util.http.ModelAndView;
 import com.giga.springlab.model.Employee;
 import com.giga.spring.annotation.controller.*;
+import com.giga.spring.annotation.method.JsonResponse;
 
 @Controller
 public class EmployeeController {
@@ -14,6 +15,7 @@ public class EmployeeController {
     }
 
     @DoPost(path = "/employees")
+    @JsonResponse
     String save(Employee e) {
         return e.toString();
     }
